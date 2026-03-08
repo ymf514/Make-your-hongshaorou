@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HongShaoRou</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<main class="hero">
+			<div class="hero-icon-bg">
+				<img class="hero-icon" src="./icon/icon.png" alt="icon" />
+			</div>
+			<h1 class="hero-text">Recreate the hongshaorou you've eaten before</h1>
+		</main>
+
+		<section class="question-row" aria-label="memory prompts">
+			<div class="question-item question-item-growup">
+				<button class="question-circle" id="growup-trigger" type="button">
+					Where did you grow up?
+				</button>
+				<div class="growup-options" id="growup-options" aria-label="Where did you grow up options">
+					<button class="growup-option" type="button" data-region="Northern China">
+						Northern China
+					</button>
+					<button class="growup-option" type="button" data-region="Southern China">
+						Southern China
+					</button>
+					<button class="growup-option" type="button" data-region="Central">
+						Central
+					</button>
+					<button class="growup-option" type="button" data-region="Overseas / diaspora">
+						Overseas / diaspora
+					</button>
+					<button class="growup-option" type="button" data-region="I’m not sure">I’m not sure</button>
+				</div>
+				<div class="region-selected" id="region-selected" aria-live="polite"></div>
+			</div>
+			<div class="question-item question-item-cook">
+				<button class="question-circle" id="cook-trigger" type="button">
+					Where is the person who cooked this dish for you from?
+				</button>
+				<div class="cook-options" id="cook-options" aria-label="Who cooked options">
+					<button class="cook-option" type="button" data-cook="Northern China">
+						Northern China
+					</button>
+					<button class="cook-option" type="button" data-cook="Southern China">
+						Southern China
+					</button>
+					<button class="cook-option" type="button" data-cook="Central">
+						Central
+					</button>
+					<button class="cook-option" type="button" data-cook="Overseas / diaspora">
+						Overseas / diaspora
+					</button>
+					<button class="cook-option" type="button" data-cook="I'm not sure">
+						I'm not sure
+					</button>
+				</div>
+				<div class="cook-selected" id="cook-selected" aria-live="polite"></div>
+			</div>
+			<div class="question-item question-item-frequency">
+				<button class="question-circle" id="frequency-trigger" type="button">
+					How often did you eat hongshaorou growing up?
+				</button>
+				<div class="frequency-options" id="frequency-options" aria-label="Frequency options">
+					<button class="frequency-option" type="button" data-frequency="Very often">
+						Very often
+					</button>
+					<button class="frequency-option" type="button" data-frequency="Occasionally">
+						Occasionally
+					</button>
+					<button class="frequency-option" type="button" data-frequency="Only during festivals">
+						Only during festivals
+					</button>
+					<button class="frequency-option" type="button" data-frequency="Rarely">
+						Rarely
+					</button>
+					<button class="frequency-option" type="button" data-frequency="I mostly know it from restaurants">
+						I mostly know it from restaurants
+					</button>
+				</div>
+				<div class="frequency-selected" id="frequency-selected" aria-live="polite"></div>
+			</div>
+			<div class="question-item question-item-flavor">
+				<button class="question-circle" id="flavor-trigger" type="button">
+					What do you remember most about the flavor?
+				</button>
+				<div class="flavor-options" id="flavor-options" aria-label="Flavor options">
+					<button class="flavor-option" type="button" data-flavor="Sweet">
+						Sweet
+					</button>
+					<button class="flavor-option" type="button" data-flavor="Soy-sauce rich">
+						Soy-sauce rich
+					</button>
+					<button class="flavor-option" type="button" data-flavor="Very soft and fatty">
+						Very soft and fatty
+					</button>
+					<button class="flavor-option" type="button" data-flavor="Dark caramel color">
+						Dark caramel color
+					</button>
+					<button class="flavor-option" type="button" data-flavor="I mostly remember the smell">
+						I mostly remember the smell
+					</button>
+				</div>
+				<div class="flavor-selected" id="flavor-selected" aria-live="polite"></div>
+			</div>
+			<div class="question-item question-item-meaning">
+				<button class="question-circle" id="meaning-trigger" type="button">
+					What does this dish mean to you?
+				</button>
+				<div class="meaning-options" id="meaning-options" aria-label="Meaning options">
+					<button class="meaning-option" type="button" data-meaning="Home">
+						Home
+					</button>
+					<button class="meaning-option" type="button" data-meaning="Childhood">
+						Childhood
+					</button>
+					<button class="meaning-option" type="button" data-meaning="Comfort food">
+						Comfort food
+					</button>
+					<button class="meaning-option" type="button" data-meaning="Just another dish">
+						Just another dish
+					</button>
+					<button class="meaning-option" type="button" data-meaning="I'm trying to remember">
+						I'm trying to remember
+					</button>
+				</div>
+				<div class="meaning-selected" id="meaning-selected" aria-live="polite"></div>
+			</div>
+		</section>
+
+		<button class="next-button" id="next-btn" type="button">
+			<svg class="next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<polyline points="9 18 15 12 9 6"></polyline>
+			</svg>
+			<span class="next-text">next</span>
+		</button>
+
+		<page class="page page-2" id="page-2">
+			<div class="page-header">
+				<button class="back-icon-btn" id="back-btn" type="button">
+					<div class="back-icon-bg">
+						<img class="back-icon" src="./icon/icon.png" alt="back to start" />
+					</div>
+				</button>
+			</div>
+			<div class="page-content">
+				<div class="selections-container">
+					<div class="selection-item" id="selection-region"></div>
+					<div class="selection-item" id="selection-cook"></div>
+					<div class="selection-item" id="selection-frequency"></div>
+					<div class="selection-item" id="selection-flavor"></div>
+					<div class="selection-item" id="selection-meaning"></div>
+				</div>
+				<div class="recipe-container" id="recipe-container"></div>
+			</div>
+			<div class="feedback-modal" id="feedback-modal" aria-hidden="true">
+				<div class="feedback-panel">
+					<h2 class="feedback-title">Individual memory deviation detected.</h2>
+					<div class="feedback-body-wrap">
+						<div class="feedback-body" id="feedback-body"></div>
+						<span class="feedback-cursor" id="feedback-cursor">|</span>
+					</div>
+					<div class="feedback-actions">
+						<button class="feedback-action-btn" id="recalculate-btn" type="button">Recalculate recipe</button>
+						<button class="feedback-action-btn" id="keep-memory-btn" type="button">Keep my memory</button>
+					</div>
+				</div>
+			</div>
+		</page>
+
+		<script src="./script.js"></script>
+	</body>
+</html>
+
